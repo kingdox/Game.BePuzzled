@@ -12,14 +12,15 @@ public class Bootsrap : MonoBehaviour
     {
 
         //### SAVED DATA
+        if (Data_SavedLocal.Exist) Data_SavedLocal.LoadAll();
+        else Data_SavedLocal.SaveAll();
+
+        //Añadimos 1 más a los guardados
+        Data_SavedLocal.Save(nameof(Data_SavedLocal.INIT_TIMES), Data_SavedLocal.INIT_TIMES + 1);
         yield return null;
 
-        //PlayerPrefs.DeleteKey("");
-        //PlayerPrefs.SetFloat()
-
-
         //GO TO LEVEL
-        //SceneManager.LoadScene(gameObject.scene.buildIndex + 1);
+        SceneManager.LoadScene(Data_SavedLocal.LEVEL);
     }
     #endregion
     #region __DEBUG

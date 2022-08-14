@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int current_playables = 0;
     #endregion
     #region Events
+    private void Awake() => Data_SavedLocal.Save(nameof(Data_SavedLocal.LEVEL), gameObject.scene.buildIndex);
     private void Start() => Toggle_ObjectsWhenWin(false);
     private void OnEnable() => OnSubscribe(true);
     private void OnDisable() => OnSubscribe(false);
@@ -31,14 +32,32 @@ public class GameManager : MonoBehaviour
     #region Private Reactions
     private void OnSubscribe(bool condition)
     {
-        //Playable
+        // Playable
         condition.Subscribe(ref Playable.OnMouseClick, OnPlayableClick);
         condition.Subscribe(ref Playable.OnCreated, OnCreated_Playable);
 
-        //Goal
+        // Goal
         condition.Subscribe(ref Goal.OnCollision, OnGoalInteraction);
         condition.Subscribe(ref Goal.OnCreated, OnCreated_Goal);
         condition.Subscribe(ref Goal.OnDestroyGoal, OnCreated_DestroyGoal);
+
+        // UI_GameMenu_Reset
+        condition.Subscribe(ref UI_GameMenu_Reset.OnClick, OnReset);
+
+        // UI_GameMenu_Achievements
+        condition.Subscribe(ref UI_GameMenu_Achievements.OnClick, OnAchievements);
+
+        // UI_GameMenu_Review
+        condition.Subscribe(ref UI_GameMenu_Review.OnClick, OnReview);
+
+        // UI_GameMenu_Audio
+        condition.Subscribe(ref UI_GameMenu_Audio.OnClick, OnAudio);
+
+        // UI_GameMenu_Web
+        condition.Subscribe(ref UI_GameMenu_Web.OnClick, OnWeb);
+
+        // UI_GameWin_Next
+        condition.Subscribe(ref UI_GameWin_Next.OnClick, OnNextLevel);
     }
 
     private void OnCreated_Playable(Playable playable) => current_playables++;
@@ -63,21 +82,51 @@ public class GameManager : MonoBehaviour
     {
         Destroy(data.goal.gameObject);
     }
-    #endregion
-    #region Methods
-    private void Toggle_ObjectsWhenWin(bool condition)
+
+    private void OnAchievements()
     {
-        foreach (var item in objs_enable_when_win) item.gameObject.SetActive(condition);
-        foreach (var item in objs_disable_when_win) item.gameObject.SetActive(!condition);
+        Debug.Log("Achievements");
     }
-    public void ResetCurrentLevel()
+
+    private void OnReview()
+    {
+        Debug.Log("Review");
+    }
+
+    private void OnAudio()
+    {
+        Debug.Log("Audio");
+    }
+
+    private void OnWeb()
+    {
+        Debug.Log("Web");
+		Application.OpenURL("https://arpaxavier.itch.io/");
+    }
+
+    private void OnReset()
     {
         SceneManager.LoadScene(gameObject.scene.buildIndex);
     }
 
-    public void NextLevel()
+    private void OnNextLevel()
     {
         SceneManager.LoadScene(gameObject.scene.buildIndex + 1);
     }
+    #endregion
+    #region Methods
+    private void Toggle_ObjectsWhenWin(bool condition)
+    {
+        foreach (var item in objs_enable_when_win)
+        {
+            if (item != null) item.SetActive(condition);
+            
+        }
+        foreach (var item in objs_disable_when_win)
+        {
+            if (item != null) item.SetActive(!condition);
+        }
+    }
+    
     #endregion
 }
