@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     private void OnNextLevel()
     {
+        Data_SavedLocal.Save(nameof(Data_SavedLocal.LEVEL), gameObject.scene.buildIndex + 1);
         SceneManager.LoadScene(gameObject.scene.buildIndex + 1);
     }
     #endregion
