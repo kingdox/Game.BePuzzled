@@ -18,6 +18,12 @@ public class Goal : MonoBehaviour
         OnCreated?.Invoke(this);
     }
 
+//#if UNITY_EDITOR
+//    private void OnDrawGizmos()
+//    {
+//        if (! Application.isPlaying) name = $"{nameof(Goal)}";
+//    }
+//#endif
     private void OnDestroy() => OnDestroyGoal?.Invoke(this);
     private void OnCollisionEnter(Collision collision) => OnCollision?.Invoke((this, collision));
 }

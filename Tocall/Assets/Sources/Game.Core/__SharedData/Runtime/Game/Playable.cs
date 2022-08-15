@@ -18,6 +18,12 @@ public class Playable : MonoBehaviour
         OnCreated?.Invoke(this);
     }
 
+//#if UNITY_EDITOR
+//    private void OnDrawGizmos()
+//    {
+//        if (! Application.isPlaying) name = $"{nameof(Playable)}";
+//    }
+//#endif
 
     private void OnMouseDown() => OnMouseClick?.Invoke(this);
     private void Update() => enabled = transform.position.y > -1000;

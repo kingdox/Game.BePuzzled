@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
 
     private void OnReset()
     {
+        Data_SavedLocal.Save(nameof(Data_SavedLocal.RESET_TIMES), Data_SavedLocal.RESET_TIMES + 1);
         SceneManager.LoadScene(gameObject.scene.buildIndex);
     }
 
