@@ -26,5 +26,5 @@ public class Playable : MonoBehaviour
 //#endif
 
     private void OnMouseDown() => OnMouseClick?.Invoke(this);
-    private void Update() => enabled = transform.position.y > -1000;
+    private void Update() => gameObject.SetActive(transform.position.y > -1000);
 }

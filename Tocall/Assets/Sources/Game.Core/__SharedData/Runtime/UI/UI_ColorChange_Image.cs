@@ -14,7 +14,7 @@ public class UI_ColorChange_Image : MonoBehaviour
 
     private void OnDisable() => this.Subscribe(false);
 
-    private void Subscribe(bool condition) => condition.Subscribe(ref WORLD_Global_Volume.OnChangeColor_Outline, OnColorChange_Outline);
+    private void Subscribe(bool condition) => WORLD_Global_Volume.OnChangedColor_Outline.Subscribe(condition,OnColorChange_Outline);
 
     private void OnColorChange_Outline(Color c_oultine) => value.color = c_oultine;
 

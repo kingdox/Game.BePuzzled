@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: 1_Volume
+  m_Name: 4_Volume
   m_EditorClassIdentifier: 
   components:
   - {fileID: 9041368999990137918}
@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Value: 1
   outlineColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 0, a: 1}
+    m_Value: {r: 0.20392157, g: 0.40784314, b: 0.3372549, a: 1}
     hdr: 0
   normalDetectionThreshold:
     m_OverrideState: 1
@@ -45,7 +45,7 @@ MonoBehaviour:
     m_Value: 1
   overwriteColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 0.8784314, g: 0.972549, b: 0.8156863, a: 1}
   ovewriteOpacity:
     m_OverrideState: 1
     m_Value: 1

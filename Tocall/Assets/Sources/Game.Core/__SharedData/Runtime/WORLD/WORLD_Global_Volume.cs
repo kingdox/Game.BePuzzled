@@ -14,8 +14,8 @@ public class WORLD_Global_Volume : MonoBehaviour
     public static Color color_Outline;
     public static Color color_Fill;
     //
-    public static Action<Color> OnChangeColor_Outline;
-    public static Action<Color> OnChangeColor_Fill;
+    public static ActionSuscriber<Color> OnChangedColor_Outline = new ActionSuscriber<Color>();
+    public static ActionSuscriber<Color> OnChangedColor_Fill = new ActionSuscriber<Color>();
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class WORLD_Global_Volume : MonoBehaviour
 
     private void RefreshOutline()
     {
-        OnChangeColor_Outline?.Invoke(c_outline.outlineColor.value);
-        OnChangeColor_Fill?.Invoke(c_outline.overwriteColor.value);
+        OnChangedColor_Outline?.Invoke(c_outline.outlineColor.value);
+        OnChangedColor_Fill?.Invoke(c_outline.overwriteColor.value);
     }
 }

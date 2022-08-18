@@ -80,7 +80,10 @@ public class GameManager : MonoBehaviour
 
     private void OnGoalInteraction((Goal goal, Collision collision) data)
     {
-        Destroy(data.goal.gameObject);
+        if (data.collision.gameObject.TryGetComponent(out Playable _playable))
+        {
+            Destroy(data.goal.gameObject);
+        }
     }
 
     private void OnAchievements()
