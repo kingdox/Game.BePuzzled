@@ -12,14 +12,11 @@ EditorBuildSettings:
     path: Assets/Sources/Game.Core/1 - B&W Tutorial [EASY]/1.unity
     guid: 820749752428d43e597c424a66426806
   - enabled: 1
-    path: Assets/Sources/Game.Core/2 - Yellow [EASY]/2.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Sources/Game.Core/2 - B&W Tutorial [EASY]/2.unity
+    guid: 060b34b4f59b64a92a45db616fcd9be4
   - enabled: 1
-    path: Assets/Sources/Game.Core/3 - Toxic Green [HARD]/3.unity
-    guid: e06b46274514f4dfa865895a26314771
-  - enabled: 1
-    path: Assets/Sources/Game.Core/4 - Game Boy/4.unity
-    guid: d9ef5d41afc984232bd7c2fa3531bcec
+    path: Assets/Sources/Game.Core/3 - B&W Tutorial [MEDIUM]/3.unity
+    guid: 599242aabfa9944e488b39e0a438a682
   - enabled: 1
     path: Assets/Sources/Game.Core/9999_end/999.unity
     guid: d59173d98a87b476b85278d97b7b7c6c
