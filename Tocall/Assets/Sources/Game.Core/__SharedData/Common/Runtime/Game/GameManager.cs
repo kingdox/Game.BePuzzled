@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,11 @@ public class GameManager : MonoBehaviour
 {
     #region Varaibles
     private int destroyed_goals = 0;
+    private int playable_click_count = 0;
 
     [Header("Game Settings")]
     [Space]
-    [SerializeField] private int max_playable_instantiation = 0; // 0 == infinite
+    [SerializeField, Min(0)] private int max_playable_click = 0; // 0 == infinite
 
     [Header("Enabler | Disabler")]
     [Space]
@@ -22,10 +24,20 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] private int current_goals = 0;
     [SerializeField] private int current_playables = 0;
+
+    public static ActionSuscriber<Vector2Int> OnCurrentPlayables = new ActionSuscriber<Vector2Int>(Vector2Int.zero);
     #endregion
     #region Events
-    private void Awake() => Data_SavedLocal.Save(nameof(Data_SavedLocal.LEVEL), gameObject.scene.buildIndex);
-    private void Start() => Toggle_ObjectsWhenWin(false);
+    private void Awake()
+    {
+        Data_SavedLocal.Save(nameof(Data_SavedLocal.LEVEL), gameObject.scene.buildIndex);
+        Application.targetFrameRate = 60;
+        Invoke_PlayablesStatus();
+    }
+    private void Start()
+    {
+        Toggle_ObjectsWhenWin(false);
+    }
     private void OnEnable() => OnSubscribe(true);
     private void OnDisable() => OnSubscribe(false);
     #endregion
@@ -73,9 +85,11 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayableClick(Playable playable)
     {
-        if (max_playable_instantiation == 0 || max_playable_instantiation > current_playables)
+        if (max_playable_click == 0 || max_playable_click > playable_click_count)
         {
+            playable_click_count++;
             Instantiate(playable.gameObject, transform.parent);
+            Invoke_PlayablesStatus();
         }
     }
 
@@ -140,6 +154,6 @@ public class GameManager : MonoBehaviour
             if (item != null) item.SetActive(!condition);
         }
     }
-    
+    private void Invoke_PlayablesStatus() => OnCurrentPlayables?.Invoke(new Vector2Int(playable_click_count, max_playable_click));
     #endregion
 }
