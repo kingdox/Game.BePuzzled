@@ -24,15 +24,19 @@ public struct VectorAnimation
         return 0;
     }
 
-    public float Update()
+    public float Update(float currentPos)
     {
 
         if (isRunning)
         {
             Calculate();
+            return currentValue;
+        }
+        else
+        {
+            return currentPos;
         }
         
-        return currentValue;
     }
 
     private void Calculate()
@@ -85,9 +89,9 @@ public class Movement : MonoBehaviour
 
     private void UpdateMovement()
     {
-        pos_movement.x = vAnim_X.Update();
-        pos_movement.y = vAnim_Y.Update();
-        pos_movement.z = vAnim_Z.Update();
+        pos_movement.x = vAnim_X.Update(pos_movement.x);
+        pos_movement.y = vAnim_Y.Update(pos_movement.y);
+        pos_movement.z = vAnim_Z.Update(pos_movement.z);
     }
 
     private void OnDrawGizmosSelected(){
@@ -96,7 +100,7 @@ public class Movement : MonoBehaviour
 
         UpdateMovement();
 
-        Gizmos.color = Color.black;
+        Gizmos.color = Color.gray;
         Gizmos.DrawCube(transform.position + pos_movement, transform.localScale);
 
         //X

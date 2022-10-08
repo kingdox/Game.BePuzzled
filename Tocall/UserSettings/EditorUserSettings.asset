@@ -6,34 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 56020653530c085d5d5d547642770d14144f1a2b7f2d71317e2d4f65bae6366f
+      value: 010157000453585f090c587a47770a46134e4c2c2d7a73337b7a1866b1b7603e
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 5a08510453575b095c5d5b7045770f491015197d742b77637d7a4e32b1b66760
+      value: 065706515d055c5f580a557b15770f15154e4a7a74787460757f4867b5e3303b
       flags: 0
     RecentlyUsedSceneGuid-2:
       value: 07040d5752060d02550f547512770846144f4d787b7022697a2b4a31b5e3623b
       flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 5650570757040a5e5e5a097a4277594943164a7a2e7b20367e714d65b6b6626e
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 510604005d025a09545a5e7644775e134516407c2a2b71667e7d1b35e3b4623d
-      flags: 0
-    RecentlyUsedSceneGuid-5:
       value: 5b030451510c5e0e5f5a5e7a14770c15434e4f29787a72317b7f4961b4b8646e
       flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-4:
       value: 5307040456010b0f0b5b552046775e4944164c7f282a70617b2f1e37bbe2316c
       flags: 0
-    RecentlyUsedSceneGuid-7:
-      value: 56080d545107085a0f080d7b49770b15424f40287f7123602c7d4e6be3b66c6a
-      flags: 0
-    RecentlyUsedSceneGuid-8:
+    RecentlyUsedSceneGuid-5:
       value: 525006035d0d5b0e0b5e087413770b434115412c792e7767797b496be1b1633c
       flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 05040755520059095e0f5924137708494f4f4078297f7e66747d1930b5b6663b
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 0700575554055059090c597611270a44154f19782e7a7e63757c4f6be7b66068
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 0601020451035b0c595b5d7616775b16174f4e7f747173317f7f4e62b6b76369
+      flags: 0
     RecentlyUsedSceneGuid-9:
-      value: 010157000453585f090c587a47770a46134e4c2c2d7a73337b7a1866b1b7603e
+      value: 0709055f04540f0f5e5b5f774777094241154f7e7e7d25347c714a67b5b2623c
       flags: 0
     UnityRemoteDevice:
       value: 225f4d46245b0d4902070862342649191512
